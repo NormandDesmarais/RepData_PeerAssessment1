@@ -103,9 +103,8 @@ median_steps &lt;- median(activity.day$steps)
 comp_data &lt;- data_frame(c(mean_steps, median_steps))
 names(comp_data) &lt;- c(&quot;Removed Missing&quot;)
 row.names(comp_data) &lt;- c(&quot;Mean total steps per day&quot;, &quot;Median total steps per day&quot;)
-kable(comp_data, caption = &quot;Mean and median values of the total steps per day (averaged over all days) computed with the Removed Missing summary&quot;)</code></pre>
+kable(comp_data, &quot;markdown&quot;, caption = &quot;Mean and median values of the total steps per day (averaged over all days) computed with the Removed Missing summary&quot;)</code></pre>
 <table>
-<caption>Mean and median values of the total steps per day (averaged over all days) computed with the Removed Missing summary</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -174,9 +173,8 @@ median_steps2 &lt;- median(activity.day2$steps)
 
 comp_data &lt;- cbind(comp_data, c(mean_steps2, median_steps2))
 colnames(comp_data)[2] &lt;- &quot;Imputed Missing&quot;
-kable(comp_data, caption = &quot;Mean and median values of the total steps per day (averaged over all days) — Comparing results from the Removed Missing values summary to the ones from the Imputed Missing values summary&quot;)</code></pre>
+kable(comp_data, &quot;markdown&quot;, caption = &quot;Mean and median values of the total steps per day (averaged over all days) — Comparing results from the Removed Missing values summary to the ones from the Imputed Missing values summary&quot;)</code></pre>
 <table>
-<caption>Mean and median values of the total steps per day (averaged over all days) — Comparing results from the Removed Missing values summary to the ones from the Imputed Missing values summary</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -231,9 +229,8 @@ g + ggtitle(&quot;Total number of steps per day&quot;)</code></pre>
 median_steps3 &lt;- median(activity.day3$steps)
 comp_data &lt;- cbind(comp_data, c(mean_steps3, median_steps3))
 colnames(comp_data)[3] &lt;- &quot;Sum Removed Missing&quot;
-kable(comp_data, caption = &quot;Mean and median values of the total steps per day (averaged over all days) — Comparing the result from the Removed Missing, Imputed Missing and Sum Removed Missing subsets&quot;)</code></pre>
+kable(comp_data, &quot;markdown&quot;, caption = &quot;Mean and median values of the total steps per day (averaged over all days) — Comparing the result from the Removed Missing, Imputed Missing and Sum Removed Missing subsets&quot;)</code></pre>
 <table>
-<caption>Mean and median values of the total steps per day (averaged over all days) — Comparing the result from the Removed Missing, Imputed Missing and Sum Removed Missing subsets</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
