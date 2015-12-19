@@ -110,7 +110,8 @@ interval.
 
 ```r
 # filter out missing values, group by interval then summarize with the mean
-activity.interval <- filter(activity, !is.na(steps)) %>% group_by(interval) %>% summarize(steps = as.integer(round(mean(steps))))
+activity.interval <- filter(activity, !is.na(steps)) %>% group_by(interval) %>%
+        summarize(steps = as.integer(round(mean(steps))))
 g <- ggplot(activity.interval, aes(x=interval,y=steps)) + geom_line()
 g <- g + xlab("Interval (minutes)") + ylab("Number of steps") 
 g + ggtitle("Number of steps per 5-minute interval (averaged over all days)")
@@ -181,7 +182,9 @@ with the previous one (**Removed Missing**) to facilitate comparison.
 # group by date and summarize with sum
 activity.day2 <- group_by(activity2, date) %>% summarize(steps = sum(steps))
 # Let's add this to activity.day.all and display them in facets 
-activity.day.all <- rbind(activity.day.all, cbind(Analysis = rep("Imputed Missing", dim(activity.day2)[1]), activity.day2))
+activity.day.all <- rbind(activity.day.all,
+                          cbind(Analysis = rep("Imputed Missing", dim(activity.day2)[1]),
+                                activity.day2))
 g <- ggplot(activity.day.all, aes(x=steps))
 g <- g + geom_histogram(binwidth = binWidth, fill="white", colour="black") 
 g <- g + facet_grid(. ~ Analysis)
@@ -239,7 +242,8 @@ and weekends. For comparison, they are displayed one on top of the other.
 
 ```r
 # add a factor (day_type) for weekdays and weekends
-activity2 <- mutate(activity2, day_type = factor(wday(ymd(date)) == 1 | wday(ymd(date)) == 7, labels = c("weekday", "weekend")))
+activity2 <- mutate(activity2, day_type = factor(wday(ymd(date)) == 1 | wday(ymd(date)) == 7,
+                                                 labels = c("weekday", "weekend")))
 # group by day_type and interval, and then summarize with the mean
 activity.day_type <- group_by(activity2, day_type, interval) %>% summarize(steps = mean(steps))
 g <- ggplot(activity.day_type, aes(x=interval, y=steps))
@@ -274,7 +278,9 @@ with the two previous ones to facilitate comparison.
 
 ```r
 activity.day3 <- group_by(activity, date) %>% summarize(steps = sum(steps, na.rm = TRUE))
-activity.day.all <- rbind(activity.day.all, cbind(Analysis = rep("Sum Removed Missing", dim(activity.day3)[1]), activity.day3))
+activity.day.all <- rbind(activity.day.all,
+                          cbind(Analysis = rep("Sum Removed Missing", dim(activity.day3)[1]),
+                                activity.day3))
 g <- ggplot(activity.day.all, aes(x=steps))
 g <- g + geom_histogram(binwidth = binWidth, fill="white", colour="black") 
 g <- g + facet_grid(. ~ Analysis)
