@@ -109,6 +109,10 @@ g <- g + xlab("Interval (minutes)") + ylab("Number of steps")
 g + ggtitle("Number of steps per 5-minute interval (averaged over all days)")
 ```
 
+**Note:** Intervals are expressed in minutes of the day, not in the hhmm
+format of the original interval from the csv file. See note in the first
+section for more details.
+
 We can see a peak of activity aroun 500 minutes (i.e. around 08:20).
 Let's find out exactly when this peak occurs.
 
@@ -215,6 +219,7 @@ weekends. We then compute the average number of steps per 5-minute interval
 plot the averaged number of steps per 5 minutes intervals for weekdays
 and weekends. For comparison, they are displayed one on top of the other.
 
+
 ```{r, average_interval2}
 # add a factor (day_type) for weekdays and weekends
 activity2 <- mutate(activity2, day_type = factor(wday(ymd(date)) == 1 | wday(ymd(date)) == 7,
@@ -227,6 +232,10 @@ g <- g + xlab("Interval (minutes)") + ylab("Number of steps")
 g + ggtitle("Number of steps per 5-minute intervals — weekends vs weekdays")
 
 ```
+
+**Note:** Intervals are expressed in minutes of the day, not in the hhmm
+format of the original interval from the csv file. See note in the first
+section for more details.
 
 We can see that during the week, there is an importan peak of activity in the 
 morning and it then settled down during the day with smaller peaks at different

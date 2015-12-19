@@ -119,6 +119,10 @@ g + ggtitle("Number of steps per 5-minute interval (averaged over all days)")
 
 ![](PA1_template_files/figure-html/average_interval-1.png) 
 
+**Note:** Intervals are expressed in minutes of the day, not in the hhmm
+format of the original interval from the csv file. See note in the first
+section for more details.
+
 We can see a peak of activity aroun 500 minutes (i.e. around 08:20).
 Let's find out exactly when this peak occurs.
 
@@ -240,6 +244,7 @@ plot the averaged number of steps per 5 minutes intervals for weekdays
 and weekends. For comparison, they are displayed one on top of the other.
 
 
+
 ```r
 # add a factor (day_type) for weekdays and weekends
 activity2 <- mutate(activity2, day_type = factor(wday(ymd(date)) == 1 | wday(ymd(date)) == 7,
@@ -253,6 +258,10 @@ g + ggtitle("Number of steps per 5-minute intervals — weekends vs weekdays")
 ```
 
 ![](PA1_template_files/figure-html/average_interval2-1.png) 
+
+**Note:** Intervals are expressed in minutes of the day, not in the hhmm
+format of the original interval from the csv file. See note in the first
+section for more details.
 
 We can see that during the week, there is an importan peak of activity in the 
 morning and it then settled down during the day with smaller peaks at different
