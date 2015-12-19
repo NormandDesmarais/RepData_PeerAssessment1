@@ -87,7 +87,7 @@ median_steps <- median(activity.day$steps)
 comp_data <- data_frame(c(mean_steps, median_steps))
 names(comp_data) <- c("Removed Missing")
 row.names(comp_data) <- c("Mean total steps per day", "Median total steps per day")
-kable(comp_data, "markdown", caption = "Mean and median values of the total steps per day (averaged over all days) computed with the Removed Missing summary")
+kable(comp_data, "markdown")
 ```
 
 
@@ -213,7 +213,7 @@ median_steps2 <- median(activity.day2$steps)
 
 comp_data <- cbind(comp_data, c(mean_steps2, median_steps2))
 colnames(comp_data)[2] <- "Imputed Missing"
-kable(comp_data, "markdown", caption = "Mean and median values of the total steps per day (averaged over all days) — Comparing results from the Removed Missing values summary to the ones from the Imputed Missing values summary")
+kable(comp_data, "markdown")
 ```
 
 
@@ -307,7 +307,7 @@ mean_steps3 <- as.integer(mean(activity.day3$steps))
 median_steps3 <- median(activity.day3$steps)
 comp_data <- cbind(comp_data, c(mean_steps3, median_steps3))
 colnames(comp_data)[3] <- "Sum Removed Missing"
-kable(comp_data, "markdown", caption = "Mean and median values of the total steps per day (averaged over all days) — Comparing the result from the Removed Missing, Imputed Missing and Sum Removed Missing subsets")
+kable(comp_data, "markdown")
 ```
 
 
